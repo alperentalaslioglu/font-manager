@@ -1,0 +1,1 @@
+var app=angular.module("fontManagerApp",[]);app.run(function(n){angular.element(document).on("click",function(a){n.$broadcast("documentClicked",angular.element(a.target))})});

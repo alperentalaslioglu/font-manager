@@ -1,0 +1,154 @@
+#font-manager {
+  @include center();
+  margin-top: 30px;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    display: inline-block;
+    @include center();
+    margin-bottom: 20px;
+    font-family: $default-font-family;
+    color: hsla(0, 0%, 100%, .9);
+  }
+
+  #manager {
+    margin: 0 auto;
+    width: 100%;
+
+    #selected-font-box {
+      width: 100%;
+      height: 20px;
+      padding: 20px;
+      background: #FFFFFF;
+      cursor: pointer;
+      border-bottom: solid 1px #DDD;
+      @include rounded(2px);
+
+      #placeholder {
+        color: #6d6d76;
+      }
+
+      #selected-font {
+        float: left;
+
+        .font-name {
+          display: inline-block;
+          font-size: 14px;
+        }
+
+        .font-type {
+          display: inline-block;
+          font-size: 24px;
+          font-weight: 500;
+          margin-right: 5px;
+        }
+      }
+
+      i {
+        float: right;
+        margin-top: 5px;
+      }
+
+    }
+
+    #body {
+      background-color: #FFFFFF;
+      @include rounded-bottom(2px);
+      width: 100%;
+      height: 400px;
+      padding: 20px;
+      position: relative;
+      width: 100%;
+      transform: scale(1, 0);
+      transition: transform ease 250ms;
+
+      #search-box {
+        margin-bottom: 10px;
+
+        input {
+          width: 100%;
+          height: 36px;
+          @include rounded(5px);
+          border: 0px;
+          background-color: #eceff1;
+          color: #97a3a8;
+          font-family: $default-font-family;
+          padding: 5px;
+        }
+
+      }
+
+      #font-list {
+        height: 90%;
+        overflow-y: scroll;
+        text-align: left;
+
+        .font-item {
+          margin: 10px;
+          padding: 10px;
+
+          &:hover {
+            background-color: #eceff1;
+            cursor: pointer;
+          }
+
+          .font-name {
+            display: inline-block;
+            font-size: 14px;
+          }
+
+          .font-type {
+            display: inline-block;
+            font-size: 24px;
+            font-weight: 500;
+            margin-right: 5px;
+          }
+
+        }
+
+        #loading {
+          margin-left: auto;
+          margin-right: auto;
+          width: 50px !important;
+        }
+
+      }
+    }
+
+    &.show{
+      #body{
+        transform: scale(1, 1);
+      }
+    }
+
+  }
+
+  @include respond-to(small) {
+
+    & {
+      width: 80%;
+      height: 70%;
+    }
+
+    h1 {
+      width: auto;
+      @include center();
+      margin-bottom: 20px;
+      font-family: $default-font-family;
+      color: hsla(0, 0%, 100%, .9);
+    }
+
+    #manager {
+      margin: 0 auto;
+      width: 90%;
+
+      #selected-font-box, #body{
+        width: auto;
+      }
+
+    }
+  }
+
+}

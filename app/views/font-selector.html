@@ -1,0 +1,29 @@
+<div id="manager" ng-class="{ show: isFontsListShown }">
+    <div id="selected-font-box" ng-click="showFonts()" ng-class="{ clicked: isFontsListShown }">
+        <span id="placeholder" ng-show="!isFontSelected">{{placeholder}}</span>
+        <span id="selected-font" ng-show="isFontSelected">
+            <span class="font-type" style="font-family:{{selectedFont.family}}, {{selectedFont.category}}">Aa</span>
+            <span class="font-name">{{selectedFont.family}}</span>
+        </span>
+        <i class="fa fa-angle-down" ng-show="isFontSelected"></i>
+    </div>
+    <div id="body">
+        <div id="search-box">
+            <input type="search" placeholder="Search Font" ng-model="fontSearch" ng-change="type(fontSearch)">
+        </div>
+        <div id="font-list" scrolly="showMore()">
+            <div class="font-item" ng-repeat="font in listedFonts | filter : {'family' : fontSearch}"
+                 ng-click="selectFont(font)">
+                    <span class="font-type" style="font-family:{{font.family}}, {{font.category}}">
+                        Aa
+                    </span>
+                    <span class="font-name">
+                        {{font.family}}
+                    </span>
+            </div>
+            <div id="loading" ng-show="isLoading">
+                <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
